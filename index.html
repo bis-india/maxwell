@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material Check</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <h1>Material Check as per IS 8130</h1>
+  <form id="conductorForm">
+    
+    <label for="material">Material:</label>
+    <select id="material" name="material">
+      <option value="Aluminium">Aluminium</option>
+      <option value="Plain Copper">Plain Copper</option>
+      <option value="Tinned Copper">Tinned Copper</option>
+    </select>
+
+    <label for="type">Conductor Type:</label>
+    <select id="type" name="type">
+      <option value="Solid">Solid</option>
+      <option value="Stranded">Stranded</option>
+      <option value="Flexible">Flexible</option>
+    </select>
+
+    <!-- Temperature with Side by Side Layout -->
+    <label for="temperature">Temperature:</label>
+    <div class="input-group">
+      <input type="number" id="temperature" name="temperature" placeholder="Value" />
+      <select id="tempUnit" name="tempUnit">
+        <option value="C">°C</option>
+        <option value="F">°F</option>
+      </select>
+    </div>
+
+    <label for="resistance">Resistance:</label>
+    <div class="input-group">
+      <input type="number" id="resistance" name="resistance" placeholder="Value" oninput="calculateR20()" />
+      <select id="resistanceUnit" name="resistanceUnit">
+        <option value="Micro Ohm">Micro Ohm</option>
+        <option value="Milli Ohm">Milli Ohm</option>
+        <option value="Ohm">Ohm</option>
+        <option value="Killo Ohm">Killo Ohm</option>
+      </select>
+    </div>
+
+    <h2 id="r20result1"></h2>
+
+    <label for="length">Length:</label>
+    <div class="input-group">
+      <input type="number" id="length" name="length" placeholder="Value" />
+      <select id="lengthUnit" name="lengthUnit">
+        <option value="m">Meter</option>
+        <option value="km">Km</option>
+        <option value="ft">Feet</option>
+      </select>
+    </div>
+    
+    <h2 id="r20result2"></h2>
+
+    <!-- Single Input with Dynamic Label -->
+    <label for="inputType">Choose Input Type:</label>
+    <select id="inputType" name="inputType" onchange="updateInput()">
+      <option value="diameter">Diameter</option>
+      <option value="area">Nominal Cross-Sectional Area</option>
+    </select>
+
+    <!-- <label id="inputLabel" for="dynamicInput">Diameter:</label> -->
+    <div class="input-group">
+      <input type="number" id="dynamicInput" name="dynamicInput" placeholder="Value" />
+      <select id="inputUnit" name="inputUnit">
+        <option value="mm">mm</option>
+        <option value="inch">Inch</option>
+      </select>
+    </div>
+
+    <button type="button" onclick="checkConductor()">Check Material</button>
+    <h2 id="r20result3"></h2>
+  </form>
+
+  <script src="script.js"></script>
+  
+  <script>
+    function updateInput() {
+    <!--const inputLabel = document.getElementById('inputLabel'); -->
+      const inputUnit = document.getElementById('inputUnit');
+      const inputType = document.getElementById('inputType').value;
+
+      if (inputType === 'diameter') {
+        <!--inputLabel.textContent = 'Diameter:'; -->
+        inputUnit.innerHTML = '<option value="mm">mm</option><option value="inch">Inch</option>';
+      } else {
+        <!--inputLabel.textContent = 'Cross-Sectional Area:'; -->
+        inputUnit.innerHTML = '<option value="sqmm">mm²</option><option value="sqinch">inch²</option>';
+      }
+    }
+  </script>
+</body>
+</html>
+
+
