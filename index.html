@@ -145,6 +145,15 @@
         inputUnit.innerHTML = '<option value="sqmm">mm²</option><option value="sqinch">inch²</option>';
       }
     }
+
+    document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's')) {
+      e.preventDefault();
+    }
+  });
   </script>
 </body>
 </html>
