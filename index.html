@@ -18,6 +18,8 @@
     .header img {
       max-width: 80%;
       height: auto;
+      max-width: 500px; /* Ensures the image never exceeds 500px */
+      height: auto;     /* Maintains aspect ratio */
     }
     .content {
       text-align: left; /* Ensures other content remains left-aligned */
@@ -50,8 +52,10 @@
   </style>
 </head>
 <body>
+  <div class="header">
   <img src="logo2.png" alt="My Logo" />
   <h1>Material Check as per IS 8130</h1>
+  </div>
   <form id="conductorForm">
     
     <label for="material">Material:</label>
