@@ -11,6 +11,16 @@ h1 {
   text-align: center;
 }
 
+.header {
+  text-align: center;
+}
+
+.header img {
+  max-width: 500px; /* Ensures image doesn't exceed 500px */
+  width: 100%;      /* Makes it responsive */
+  height: auto;     /* Maintains aspect ratio */
+}
+
 form {
   background-color: #fff;
   padding: 10px;
