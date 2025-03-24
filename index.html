@@ -5,6 +5,29 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Material Check</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #009bff;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: grab;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
   <h1>Material Check as per IS 8130</h1>
@@ -78,6 +101,8 @@
     <button type="button" onclick="checkConductor()">Check Material</button>
     <h2 id="r20result3"></h2>
   </form>
+  
+  <a href="https://api.whatsapp.com/send/?phone=919215005098&text=I%20need%20help%20in%20BIS%20inspection" class="whatsapp-button" target="_blank">📞</a>
 
   <script src="script.js"></script>
   
@@ -98,5 +123,3 @@
   </script>
 </body>
 </html>
-
-
