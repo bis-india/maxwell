@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material Check</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+   body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+    .header {
+      text-align: center;
+    }
+    .header img {
+      max-width: 60%;
+      height: auto;
+      max-width: 300px; /* Ensures the image never exceeds 500px */
+      height: auto;     /* Maintains aspect ratio */
+    }
+    .content {
+      text-align: left; /* Ensures other content remains left-aligned */
+    }
+    img {
+      max-width: 70%; /* Responsive image */
+      height: auto;    /* Maintain aspect ratio */
+    }
+    /*.whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #009bff;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      cursor: grab;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+    .whatsapp-button:hover {
+      transform: scale(1.1);
+    }*/
+  </style>
+</head>
+<body>
+  <div class="header">
+  <img src="logo2.png" alt="Maxwell" />
+  <h1>Material Check as per IS 8130:2013</h1>
+  </div>
+  <form id="conductorForm">
+    
+    <label for="material">Material:</label>
+    <select id="material" name="material">
+      <option value="Aluminium">Aluminium</option>
+      <option value="Plain Copper">Plain Copper</option>
+      <option value="Tinned Copper">Tinned Copper</option>
+    </select>
+
+    <label for="type">Conductor Type:</label>
+    <select id="type" name="type">
+      <option value="Solid">Solid</option>
+      <option value="Stranded">Stranded</option>
+      <option value="Flexible">Flexible</option>
+    </select>
+
+    <!-- Temperature with Side by Side Layout -->
+    <label for="temperature">Temperature:</label>
+    <div class="input-group">
+      <input type="number" id="temperature" name="temperature" placeholder="Value" />
+      <select id="tempUnit" name="tempUnit">
+        <option value="C">°C</option>
+        <option value="F">°F</option>
+      </select>
+    </div>
+
+    <label for="resistance">Resistance:</label>
+    <div class="input-group">
+      <input type="number" id="resistance" name="resistance" placeholder="Value" oninput="calculateR20()" />
+      <select id="resistanceUnit" name="resistanceUnit">
+        <option value="Micro Ohm">Micro Ohm</option>
+        <option value="Milli Ohm">Milli Ohm</option>
+        <option value="Ohm">Ohm</option>
+        <option value="Killo Ohm">Killo Ohm</option>
+      </select>
+    </div>
+
+    <h2 id="r20result1"></h2>
+
+    <label for="length">Length:</label>
+    <div class="input-group">
+      <input type="number" id="length" name="length" placeholder="Value" />
+      <select id="lengthUnit" name="lengthUnit">
+        <option value="m">Meter</option>
+        <option value="km">Km</option>
+        <option value="ft">Feet</option>
+      </select>
+    </div>
+    
+    <h2 id="r20result2"></h2>
+
+    <!-- Single Input with Dynamic Label -->
+    <label for="inputType">Choose Input Type:</label>
+    <select id="inputType" name="inputType" onchange="updateInput()">
+      <option value="diameter">Diameter</option>
+      <option value="area">Nominal Cross-Sectional Area</option>
+    </select>
+
+    <!-- <label id="inputLabel" for="dynamicInput">Diameter:</label> -->
+    <div class="input-group">
+      <input type="number" id="dynamicInput" name="dynamicInput" placeholder="Value" />
+      <select id="inputUnit" name="inputUnit">
+        <option value="mm">mm</option>
+        <option value="inch">Inch</option>
+      </select>
+    </div>
+
+    <button type="button" onclick="checkConductor()">Check Material</button>
+    <h2 id="r20result3"></h2>
+  </form>
+  
+  <!--<a href="https://api.whatsapp.com/send/?phone=919215005098&text=I%20need%20help%20in%20BIS%20inspection" class="whatsapp-button" target="_blank">📞</a>-->
+
+  <script src="script.js"></script>
+  
+  <script>
+    function updateInput() {
+    <!--const inputLabel = document.getElementById('inputLabel'); -->
+      const inputUnit = document.getElementById('inputUnit');
+      const inputType = document.getElementById('inputType').value;
+
+      if (inputType === 'diameter') {
+        <!--inputLabel.textContent = 'Diameter:'; -->
+        inputUnit.innerHTML = '<option value="mm">mm</option><option value="inch">Inch</option>';
+      } else {
+        <!--inputLabel.textContent = 'Cross-Sectional Area:'; -->
+        inputUnit.innerHTML = '<option value="sqmm">mm²</option><option value="sqinch">inch²</option>';
+      }
+    }
+
+    document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+  });
+  document.addEventListener('keydown', function(e) {
+    if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's')) {
+      e.preventDefault();
+    }
+  });
+  </script>
+</body>
+</html>
