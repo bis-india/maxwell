@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Material Checker</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+    .header {
+      text-align: center;
+    }
+    .header img {
+      max-width: 60%;
+      height: auto;
+      max-width: 300px;
+    }
+    .content {
+      text-align: left;
+    }
+    img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <img src="logo2.png" alt="Maxwell" />
+    <h1>Material Checker</h1>
+  </div>
+<form id="Master">
+
+  <label for="standard">Choose Standard:</label>
+  <select id="standard" name="standard" onchange="showForm()">
+    <option value="">--Select--</option>
+    <option value="IS8130">IS 8130:2013 - Conductors for Cables & Flexible Cords</option>
+    <option value="IS613">IS 613:2000 & IS 1897:2008 - Copper Strips, Rods & Bars</option>
+  </select>
+      </form>
+
+  <div id="IS8130Form" style="display:none;">
+    <!-- IS8130 Form Content Here -->
+    <iframe src="is8130.html" width="100%" height="780px" frameborder="0"></iframe>
+  </div>
+
+  <div id="IS613Form" style="display:none;">
+    <!-- IS613 Form Content Here -->
+    <iframe src="is613.html" width="100%" height="750px" frameborder="0"></iframe>
+  </div>
+
+    <script src="script.js"></script>
+  <script>
+    function showForm() {
+      const standard = document.getElementById('standard').value;
+      document.getElementById('IS8130Form').style.display = 'none';
+      document.getElementById('IS613Form').style.display = 'none';
+      
+      if (standard === 'IS8130') {
+        document.getElementById('IS8130Form').style.display = 'block';
+      } else if (standard === 'IS613') {
+        document.getElementById('IS613Form').style.display = 'block';
+      }
+    }
+  </script>
+</body>
+</html>
+
+
+

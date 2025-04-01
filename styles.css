@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 1;
+  padding: 1px;
+  color: #333;
+}
+
+h1 {
+  color: #0056b3;
+  text-align: center;
+}
+
+.header {
+  text-align: center;
+}
+
+.header img {
+  max-width: 500px; /* Ensures image doesn't exceed 500px */
+  width: 100%;      /* Makes it responsive */
+  height: auto;     /* Maintains aspect ratio */
+}
+
+form {
+  background-color: #fff;
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 2px auto;
+}
+
+label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Style for input and select side by side */
+.input-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-group input {
+  flex: 1;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.input-group select {
+  width: auto;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 12px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+h2 {
+  text-align: center;
+  margin-top: 20px;
+  color: #28a745;
+}
+
+/* Hide R20 section initially */
+#r20Section {
+  display: none;
+  text-align: center;
+  margin-top: 20px;
+  color: #dc3545;
+}
+
+#r20result18130 {
+  font-size: 18px; /* Adjust font size */
+  color: #8e8e8e; /* Adjust color */
+  font-weight: bold; /* Optional: Adjust font weight */
+  margin-top: 5px; /* Adjust spacing */
+}
+
+#r20result28130 {
+  font-size: 18px; /* Adjust font size */
+  color: #8e8e8e; /* Adjust color */
+  font-weight: bold; /* Optional: Adjust font weight */
+  margin-top: 5px; /* Adjust spacing */
+}
+
+#resistanceResult {
+  font-size: 18px; /* Adjust font size */
+  color: #8e8e8e; /* Adjust color */
+  font-weight: bold; /* Optional: Adjust font weight */
+  margin-top: 5px; /* Adjust spacing */
+}
+
+#multiplierResult {
+  font-size: 18px; /* Adjust font size */
+  color: #8e8e8e; /* Adjust color */
+  font-weight: bold; /* Optional: Adjust font weight */
+  margin-top: 5px; /* Adjust spacing */
+}
+
+/* Responsive Design */
+@media (max-width: 260px) {
+  form {
+    width: 85%;
+    padding: 15px; /* Slightly reduce padding */
+  }
+
+  .input-group {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    flex-direction: column;
+    gap: 5px; /* Reduce gap for compact layout */
+  }
+
+  .input-group input, 
+  .input-group select {
+    width: 100%;
+    flex: 1 1 calc(50% - 50px); /* Maintain side-by-side with proper spacing */
+    min-width: 50px; /* Ensure minimum width */
+  }
+}
+
+/* Remove arrows from number input fields */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+
+

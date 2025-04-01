@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IS613 IS1897</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      padding: 10px;
+    }
+    .header {
+      text-align: center;
+    }
+    .header img {
+      max-width: 60%;
+      height: auto;
+      max-width: 300px;
+      height: auto;
+    }
+    .content {
+      text-align: left;
+    }
+    img {
+      max-width: 70%;
+      height: auto;
+    }
+  </style>
+</head>
+<body onload="updateInput()">
+  <!--<div class="header">
+    <img src="logo2.png" alt="Maxwell" />
+    <h1>Material Checker - IS 613:2000 & 1897:2008</h1>
+  </div>-->
+  <form id="IS613IS1897">
+    
+    <label for="conductorType613">Conductor Type:</label>
+    <select id="conductorType613" name="conductorType613">
+      <option value="aso">Annealed Soft (O)</option>
+      <option value="hbd">Half Hard (HB) / Hard (HD)</option>
+    </select>
+    
+    
+    <label for="temperature">Temperature:</label>
+    <div class="input-group">
+      <input type="number" id="temperature" name="temperature" placeholder="Value" />
+      <select id="tempUnit" name="tempUnit">
+        <option value="C">°C</option>
+        <option value="F">°F</option>
+      </select>
+    </div>
+    
+    <h2 id="multiplierResult"></h2>
+
+    <label for="resistance">Resistance:</label>
+    <div class="input-group">
+      <input type="number" id="resistance" name="resistance" placeholder="Value" />
+      <select id="resistanceUnit" name="resistanceUnit">
+        <option value="Micro Ohm">Micro Ohm</option>
+        <option value="Milli Ohm">Milli Ohm</option>
+        <option value="Ohm">Ohm</option>
+        <option value="Killo Ohm">Killo Ohm</option>
+      </select>
+    </div>
+    
+    <h2 id="resistanceResult"></h2>
+
+    <label for="length">Length:</label>
+    <div class="input-group">
+      <input type="number" id="length" name="length" placeholder="Value" />
+      <select id="lengthUnit" name="lengthUnit">
+        <option value="m">Meter</option>
+        <option value="km">Km</option>
+        <option value="ft">Feet</option>
+      </select>
+    </div>
+
+    <label for="inputType">Choose Input Type:</label>
+    <select id="inputType" name="inputType" onchange="updateInput()">
+      <option value="area">Area</option>
+      <option value="diameter">Diameter</option>
+      <option value="widthBreadth">Width & Breadth</option>
+    </select>
+
+    <div class="input-group" id="dynamicInputs"></div>
+
+    <button type="button" id="checkMaterialbutton">Check Material</button>
+    <h2 id="resistivityResult"></h2>
+  </form>
+  
+    <script src="script.js"></script>
+
+  <script>
+    function updateInput() {
+      console.log("Updating input fields...");
+      const inputType = document.getElementById('inputType').value;
+      const dynamicInputs = document.getElementById('dynamicInputs');
+      dynamicInputs.innerHTML = '';
+
+      if (inputType === 'diameter') {
+        dynamicInputs.innerHTML = `<input type="number" id="diameter" name="diameter" placeholder="Diameter" />
+                                    <select id="inputUnit" name="inputUnit">
+                                      <option value="mm">mm</option>
+                                      <option value="inch">Inch</option>
+                                    </select>`;
+      } else if (inputType === 'area') {
+        dynamicInputs.innerHTML = `<input type="number" id="area" name="area" placeholder="Area" />
+                                    <select id="inputUnit" name="inputUnit">
+                                      <option value="sqmm">mm²</option>
+                                      <option value="sqinch">inch²</option>
+                                    </select>`;
+      } else if (inputType === 'widthBreadth') {
+        dynamicInputs.innerHTML = `<input type="number" id="width" name="width" placeholder="Width" />
+                                    <input type="number" id="breadth" name="breadth" placeholder="Breadth" />
+                                    <select id="inputUnit" name="inputUnit">
+                                      <option value="mm">mm</option>
+                                      <option value="inch">Inch</option>
+                                    </select>`;
+      }
+    console.log("...Update done for input fields");
+    }
+  </script>
+</body>
+</html>
+
+
